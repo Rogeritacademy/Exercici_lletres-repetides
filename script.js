@@ -107,7 +107,6 @@ MontaMatriu();
 // Solució Fase 4
 const Cognom = ('Masellas');
 const Nom = ('Roger');
-
 var CognomMatriu = Cognom.split('');
 var NomMatriu = Nom.split('');
 var myFullName = [];
