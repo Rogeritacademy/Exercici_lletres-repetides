@@ -37,71 +37,88 @@ myFullName.push(...myName);
 */
 
 const ElMeuNom = ('Roger Masellas Roca1');
-var lletresVocals = ['A','E','I','O','U','a','e','i','o','u'];
+const lletresVocals = ['A','E','I','O','U','a','e','i','o','u'];
 var lletraActual;
 var elMeuNomMatriu = ElMeuNom.split('');
 
 
-// Solucions Fase 1 i Fase 2 combinades
-
-function fase01fase02() {
+// Solucions Fase 1
+function ShowChars() {
   let iteracions = elMeuNomMatriu.length;
   for (i=0; i<iteracions; i++) {
     var lletraActual = elMeuNomMatriu[i];
+    console.log(lletraActual);
+  }
+}
 
+console.log('####### Solucions Fase 1 #######');
+ShowChars();
+
+// Solucions Fase 2
+
+function CharClassify() {
+  let iteracions = elMeuNomMatriu.length;
+  for (i=0; i<iteracions; i++) {
+    var lletraActual = elMeuNomMatriu[i];
     if (lletraActual == ' ') {
       console.log('Aqui hi ha un espai');
     } else if (!isNaN(lletraActual)) {
-      console.log('Ep! Això és un nombre: ', lletraActual );
-    }  else {
-      if (lletresVocals.indexOf(lletraActual) > -1) {
-      //if (lletraActual == 'a' || lletraActual == 'e' || lletraActual == 'i' || lletraActual == 'o' || lletraActual == 'u') {
-        console.log('La lletra ' + lletraActual + ' es una VOCAL');
-      } else {
-        console.log('La lletra ' + lletraActual + ' es una CONSONANT');
-      }
+      console.log('Ep! Això és un número: ', lletraActual );
+    } else {
+      VowelOrCons(lletraActual);
     }
   } //fi del bucle
 }
 
-console.log('####### Solucions Fase 1 i Fase 2 #######');
-fase01fase02();
+function VowelOrCons(c) {
+  if (lletresVocals.indexOf(c) > -1) {
+    console.log('La lletra ' + c + ' es una VOCAL');
+  } else {
+    console.log('La lletra ' + c + ' es una CONSONANT');
+  }
+}
 
+console.log('####### Solucions Fase 2 #######');
+CharClassify();
 
 // Solució Fase 3
-
-//var trobatAinternet = new Map([...new Set(elMeuNomMatriu)].map(x => [x, elMeuNomMatriu.filter(y => y === x).length]));
-
 /* ########### */
 
-var fase03 = new Map();
+var charOccurrencies = new Map();
 var count = 0;
 var lletra = '';
 var nums = [];
 var iteracions = elMeuNomMatriu.length;
 
-function MontaMatriu() {
+function ToLowerCase() {
   for (i=0; i<iteracions; i++) {
    elMeuNomMatriu[i] = elMeuNomMatriu[i].toLowerCase();
   }
+}
 
+function Counter() {
+  for(var j=0; j<iteracions; j++) {
+    if(elMeuNomMatriu[j] == lletra) {
+      count++;
+    }
+  }
+}
+
+function CreateArrays() {
+  ToLowerCase();
   for(i=0; i<iteracions; i++) {
     lletra = elMeuNomMatriu[i];
-      for(var j=0; j<iteracions; j++) {
-        if(elMeuNomMatriu[j] == lletra) {
-          count++;
-        }
-      }
-    fase03.set(lletra, count);
+    Counter();
+    charOccurrencies.set(lletra, count);
     //nums.push(count);
     count=0;
   }
-  console.log(fase03);
+  console.log(charOccurrencies);
   //console.log(nums);
 }
 
 console.log('####### Solució Fase 3 #######');
-MontaMatriu();
+CreateArrays();
 
 // Solució Fase 4
 const Cognom = ('Masellas');
