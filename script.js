@@ -41,8 +41,9 @@ const lletresVocals = ['A','E','I','O','U','a','e','i','o','u'];
 var lletraActual;
 var elMeuNomMatriu = ElMeuNom.split('');
 
+// Solució Fase 1
+/* ########### */
 
-// Solucions Fase 1
 function ShowChars() {
   let iteracions = elMeuNomMatriu.length;
   for (i=0; i<iteracions; i++) {
@@ -54,7 +55,8 @@ function ShowChars() {
 console.log('####### Solucions Fase 1 #######');
 ShowChars();
 
-// Solucions Fase 2
+// Solució Fase 2
+/* ########### */
 
 function CharClassify() {
   let iteracions = elMeuNomMatriu.length;
@@ -121,6 +123,8 @@ console.log('####### Solució Fase 3 #######');
 CreateArrays();
 
 // Solució Fase 4
+/* ########### */
+
 const Cognom = ('Masellas');
 const Nom = ('Roger');
 var CognomMatriu = Cognom.split('');
